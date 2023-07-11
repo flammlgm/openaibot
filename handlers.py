@@ -26,7 +26,7 @@ async def menu(msg: Message):
 @router.callback_query(F.data == "generate_text")
 async def input_text_prompt(clbck: CallbackQuery, state: FSMContext):
     await state.set_state(Gen.text_prompt)
-    await clbck.message.edit_text(text.gen_text)
+    await clbck.message.edit_text(text.gen_text) 
     await clbck.message.answer(text.gen_exit, reply_markup=kb.exit_kb)
 
 @router.message(Gen.text_prompt)
